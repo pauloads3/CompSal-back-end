@@ -18,6 +18,7 @@ import com.devmoney.compsal.Repository.JogadorRepository;
 import com.devmoney.compsal.Repository.ResolucaoEquipeRepository;
 import com.devmoney.compsal.Repository.SumulaRepository;
 import com.devmoney.compsal.Repository.TecnicoRepository;
+import com.devmoney.compsal.Repository.UsuarioRepository;
 import com.devmoney.compsal.domain.Anotador;
 import com.devmoney.compsal.domain.Arbitro;
 import com.devmoney.compsal.domain.Equipe;
@@ -26,6 +27,7 @@ import com.devmoney.compsal.domain.Jogador;
 import com.devmoney.compsal.domain.ResolucaoEquipe;
 import com.devmoney.compsal.domain.Sumula;
 import com.devmoney.compsal.domain.Tecnico;
+import com.devmoney.compsal.domain.UsuarioNew;
 import com.devmoney.compsal.domain.enums.FuncaoArbitro;
 import com.devmoney.compsal.domain.enums.PerfilUsuario;
 
@@ -48,6 +50,8 @@ public class CompsalBackendApplication implements CommandLineRunner {
 	private ResolucaoEquipeRepository resEquipeRepo;
 	@Autowired
 	private GestorRepository gestorRepo;
+	@Autowired
+	private UsuarioRepository usuRepo;
 	
 	
 	public static void main(String[] args) {
@@ -69,6 +73,13 @@ public class CompsalBackendApplication implements CommandLineRunner {
 		Arbitro arb3 = new Arbitro(null, "Mannolo Silva", FuncaoArbitro.AUXILIAR);
 		Arbitro arb4 = new Arbitro(null, "Evandro da Costa", FuncaoArbitro.AUXILIAR);
 		Arbitro arb5 = new Arbitro(null, "Júlio Alenmar", FuncaoArbitro.PRINCIPAL);
+		Arbitro arb6 = new Arbitro(null, "Emmanuel Andrade", FuncaoArbitro.PRINCIPAL);
+		Arbitro arb7 = new Arbitro(null, "Miguel Borges", FuncaoArbitro.AUXILIAR);
+		Arbitro arb8 = new Arbitro(null, "Mannolo Silva", FuncaoArbitro.AUXILIAR);
+		Arbitro arb9 = new Arbitro(null, "Evandro da Costa", FuncaoArbitro.AUXILIAR);
+		Arbitro arb10 = new Arbitro(null, "Júlio Alenmar", FuncaoArbitro.PRINCIPAL);
+		
+		UsuarioNew usu = new UsuarioNew(null, "Júlio Alenmar", " 07765555","teteu");
 		
 		Tecnico tecA = new Tecnico(null, "Zé Braga Neto", "zeze@gmail.com", "55566448", PerfilUsuario.TECNICO);
 		Tecnico tecB = new Tecnico(null, "Birimba", "birimbal123@gmail.com", "46789932", PerfilUsuario.TECNICO);
@@ -155,7 +166,7 @@ public class CompsalBackendApplication implements CommandLineRunner {
 		gestorRepo.save(gestor);
 		anotadorRepo.saveAll(Arrays.asList(ano1, ano2));
 		
-		arbitroRepo.saveAll(Arrays.asList(arb1, arb2, arb3, arb4, arb5));
+		arbitroRepo.saveAll(Arrays.asList(arb1, arb2, arb3, arb4, arb5, arb6, arb7, arb8, arb9, arb10));
 		sumulaRepo.saveAll(Arrays.asList(sumu1,sumu2, sumu3,sumu4));
 		
 		tecnicoRepo.saveAll(Arrays.asList(tecA, tecB));
@@ -163,9 +174,13 @@ public class CompsalBackendApplication implements CommandLineRunner {
 		
 		resEquipeRepo.saveAll(Arrays.asList(resEquipeA, resEquipeB));
 		jogadorRepo.saveAll(Arrays.asList(joga1, joga2, joga3, joga4, joga5, jogb1, jogb2, jogb3, jogb4, jogb5));
+		
+		usuRepo.save(usu);
+	
 	}
 
 }
+
 
 
 
