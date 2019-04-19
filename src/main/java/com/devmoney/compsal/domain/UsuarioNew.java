@@ -23,7 +23,7 @@ public class UsuarioNew implements Serializable{
 	private String email;
 	private String endereco;
 	private String numeroEnd;
-	private Integer cep;
+	private String cep;
 	private String bairro;
 	private String municipio;
 	private String uf;
@@ -31,13 +31,32 @@ public class UsuarioNew implements Serializable{
 	public UsuarioNew() {
 	}
 
-	public UsuarioNew(Integer id, String nome, String cpf, String apelido) {
+	public UsuarioNew(Integer id, String nome, String cpf, String apelido, String sexo,
+			String dtNascimento,
+			String telefone,
+			String email,
+			String endereco,
+			String numeroEnd,
+			String cep,
+			String bairro,
+			String municipio,
+			String uf
+			) {
 		super();
 		this.id = id;
 		this.nome = nome;
 		this.cpf = cpf;
 		this.apelido = apelido;
-		
+		this.sexo = sexo;
+		this.dtNascimento = dtNascimento;
+		this.telefone = telefone;
+		this.email = email;
+		this.endereco = endereco;
+		this.numeroEnd = numeroEnd;
+		this.cep = cep;
+		this.bairro = bairro;
+		this.municipio = municipio;
+		this.uf = uf;
 	}
 
 	public Integer getId() {
@@ -120,11 +139,11 @@ public class UsuarioNew implements Serializable{
 		this.numeroEnd = numeroEnd;
 	}
 
-	public Integer getCep() {
+	public String getCep() {
 		return cep;
 	}
 
-	public void setCep(Integer cep) {
+	public void setCep(String cep) {
 		this.cep = cep;
 	}
 

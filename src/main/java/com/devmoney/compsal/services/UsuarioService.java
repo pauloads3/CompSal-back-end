@@ -49,12 +49,24 @@ public class UsuarioService {
 	//}
 	
 	public UsuarioNew fromDTO(UsuarioDTO objDto) {
-		return new UsuarioNew(null, objDto.getNome(), objDto.getCpf(),objDto.getApelido());
+		return new UsuarioNew(null, objDto.getNome(), objDto.getCpf(),
+				objDto.getApelido(), 
+				objDto.getSexo(), 
+				objDto.getDtNascimento(),
+				objDto.getTelefone(),
+				objDto.getEmail(),
+				objDto.getEndereco(),
+				objDto.getNumeroEnd(),
+				objDto.getCep(),
+				objDto.getBairro(),
+				objDto.getMunicipio(),
+				objDto.getUf());
 	}
 	
 	public void updateArbitro(UsuarioNew newObj, UsuarioNew obj) {
 		newObj.setNome(obj.getNome());
 		newObj.setCpf(obj.getCpf());
+		newObj.setApelido(obj.getApelido());
 	// xxxxxxxxxx termina....	
 	}
 	

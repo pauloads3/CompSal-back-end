@@ -50,9 +50,24 @@ public class UsuarioResource {
 	@RequestMapping(value="/createUsuario", method=RequestMethod.POST)
 	public ResponseEntity<UsuarioNew> insert(@Valid @RequestBody UsuarioDTO objDto) {
 		UsuarioNew usuario = service.fromDTO(objDto);
-		usuario = service.insert(usuario);
+		System.err.println("*** createUsuario: objDto."
+				+ "nome=" + objDto.getNome()
+				+ ", cpf=" + objDto.getCpf()
+				+ ", apelido=" + objDto.getApelido()
+				);
+		System.err.println("*** createUsuario: usuario."
+				+ "nome=" + usuario.getNome()
+				+ ", cpf=" + usuario.getCpf()
+				+ ", apelido=" + usuario.getApelido()
+				);		usuario = service.insert(usuario);
 		URI uri = ServletUriComponentsBuilder.fromCurrentRequest().path("/{id}").buildAndExpand(usuario.getId()).toUri();	
 		return ResponseEntity.created(uri).build();
+	}
+	
+	@RequestMapping(value="/deleteUsuario", method=RequestMethod.POST)
+	public ResponseEntity<UsuarioNew> delete(@Valid @RequestBody UsuarioDTO objDto) {
+		service.delete(objDto.getId());
+		return null;
 	}
 	
 }

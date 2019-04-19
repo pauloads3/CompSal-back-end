@@ -61,6 +61,13 @@ public class CompsalBackendApplication implements CommandLineRunner {
 	@Override
 	public void run(String... args) throws Exception {
 
+		//popula();
+	
+	}
+
+	
+	@SuppressWarnings("unused")
+	private void popula() throws Exception {
 		SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy HH:mm");
 		
 		Gestor gestor = new Gestor(null, "Alexandre Fulvia", "alex-Andre.F@gmail.com", "53328133", PerfilUsuario.GESTOR);
@@ -79,7 +86,7 @@ public class CompsalBackendApplication implements CommandLineRunner {
 		Arbitro arb9 = new Arbitro(null, "Evandro da Costa", FuncaoArbitro.AUXILIAR);
 		Arbitro arb10 = new Arbitro(null, "Júlio Alenmar", FuncaoArbitro.PRINCIPAL);
 		
-		UsuarioNew usu = new UsuarioNew(null, "Júlio Alenmar", " 07765555","teteu");
+		//UsuarioNew usu = new UsuarioNew(null, "Júlio Alenmar", " 07765555","teteu");
 		
 		Tecnico tecA = new Tecnico(null, "Zé Braga Neto", "zeze@gmail.com", "55566448", PerfilUsuario.TECNICO);
 		Tecnico tecB = new Tecnico(null, "Birimba", "birimbal123@gmail.com", "46789932", PerfilUsuario.TECNICO);
@@ -175,10 +182,8 @@ public class CompsalBackendApplication implements CommandLineRunner {
 		resEquipeRepo.saveAll(Arrays.asList(resEquipeA, resEquipeB));
 		jogadorRepo.saveAll(Arrays.asList(joga1, joga2, joga3, joga4, joga5, jogb1, jogb2, jogb3, jogb4, jogb5));
 		
-		usuRepo.save(usu);
-	
+		//usuRepo.save(usu);
 	}
-
 }
 
 
