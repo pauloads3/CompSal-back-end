@@ -1,6 +1,7 @@
 package com.devmoney.compsal.domain;
 
 import java.io.Serializable;
+import java.util.Date;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -100,7 +101,9 @@ public class UsuarioNew implements Serializable{
 	}
 
 	public String getSexo() {
-		return sexo;
+		
+			return sexo;
+		
 	}
 
 	public void setSexo(String sexo) {

@@ -1,8 +1,13 @@
 package com.devmoney.compsal.dto;
 
 import java.io.Serializable;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 
 import javax.validation.constraints.NotEmpty;
+
+import org.hibernate.validator.constraints.Length;
 
 import com.devmoney.compsal.domain.UsuarioNew;
 
@@ -12,22 +17,36 @@ public class UsuarioDTO implements Serializable {
 	private Integer id;
 	
 	@NotEmpty(message="Preenchimento do Nome é Obrigatório!")
-	//@Length(min=5, max=50, message="O tamanho deve estar entre 5 e 50 caracteres!")
+	@Length(min=5, max=50, message="(Nome) O tamanho deve estar entre 5 e 50 caracteres!")
 	private String nome;
+	@NotEmpty(message="Preenchimento do CPF é Obrigatório!")
+	@Length(min=11, max=14, message="(CPF) O tamanho deve ser de 11 caracteres!")
 	private String cpf;
+	//@NotEmpty(message="Preenchimento do Apelido é Obrigatório!")
 	private String apelido;
+	@NotEmpty(message="Selecione seu Sexo é Obrigatório!")
 	private String sexo;
+	@NotEmpty(message="Preenchimento da Data de Nascimento é Obrigatório!")
 	private String dtNascimento;
+	@NotEmpty(message="Preenchimento do Telefone é Obrigatório!")
 	private String telefone;
+	@NotEmpty(message="Preenchimento do E-mail é Obrigatório!")
 	private String email;
+	@NotEmpty(message="Preenchimento do Endereço é Obrigatório!")
 	private String endereco;
+	@NotEmpty(message="Preenchimento do Nº do Endereço é Obrigatório!")
 	private String numeroEnd;
+	@NotEmpty(message="Preenchimento do CEP é Obrigatório!")
 	private String cep;
+	@NotEmpty(message="Preenchimento do Bairro é Obrigatório!")
 	private String bairro;
+	@NotEmpty(message="Preenchimento do Município é Obrigatório!")
 	private String municipio;
+	@NotEmpty(message="Selecione sua UF é Obrigatório!")
 	private String uf;
 	
 	public UsuarioDTO() {
+		//this.validaData();
 	}
 	
 	public UsuarioDTO(UsuarioNew obj) {
@@ -45,6 +64,7 @@ public class UsuarioDTO implements Serializable {
 		this.bairro = obj.getBairro();
 		this.municipio = obj.getMunicipio();
 		this.uf = obj.getUf();
+		//this.validaData();
 	}
 
 
@@ -165,5 +185,19 @@ public class UsuarioDTO implements Serializable {
 		return serialVersionUID;
 	}
 
+	public void validaData(){
+		 Date data = null;
+	    String dataTexto = new String("30/02/2006");
+	    SimpleDateFormat format = new SimpleDateFormat("dd/MM/yyyy");
+	    	try {
+	    		format.setLenient(false);
+	    		data = format.parse(dataTexto);
+	    	} catch (ParseException e) {
+	    		System.err.println("*** validaData: O fulano escreveu a data Errada");
+	    		//JOptionPane.showMessageDialog(null,"O Mané escreveu a data Errada","AVISO",JOptionPane.WARNING_MESSAGE);
+	    	}
+	}
+	
+	
 		
 }

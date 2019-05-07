@@ -22,6 +22,11 @@ public class UsuarioService {
 		return obj.orElse(null);
 	}
 	
+	public UsuarioNew findCpf(String cpf) {
+		Optional<UsuarioNew> obj = repo.findByCpf(cpf);
+		return obj.orElse(null);
+	}
+	
 	public List<UsuarioNew> findAll() {
 		return repo.findAll();
 	}
@@ -32,8 +37,9 @@ public class UsuarioService {
 	}
 	
 	public UsuarioNew update(UsuarioNew obj) {
+		System.err.println("*** update:");
 		UsuarioNew newObj = findId(obj.getId());
-		updateArbitro(newObj, obj);
+		updateUsuario(newObj, obj);
 		return repo.save(newObj);
 	}
 	
@@ -63,11 +69,28 @@ public class UsuarioService {
 				objDto.getUf());
 	}
 	
-	public void updateArbitro(UsuarioNew newObj, UsuarioNew obj) {
+	public void updateUsuario(UsuarioNew newObj, UsuarioNew obj) {
+		System.err.println("*** updateUsuario:");
 		newObj.setNome(obj.getNome());
-		newObj.setCpf(obj.getCpf());
+		//newObj.setCpf(obj.getCpf()); ///// não alterar
 		newObj.setApelido(obj.getApelido());
+		newObj.setSexo(obj.getSexo());		
+		newObj.setDtNascimento(obj.getDtNascimento());
+		newObj.setTelefone(obj.getTelefone());
+		newObj.setEmail(obj.getEmail());
+		newObj.setEndereco(obj.getEndereco());
+		newObj.setNumeroEnd(obj.getNumeroEnd());
+		newObj.setCep(obj.getCep());
+		newObj.setBairro(obj.getBairro());
+		newObj.setMunicipio(obj.getMunicipio());
+		newObj.setUf(obj.getUf());
+		
+		//repo.update();
+		
 	// xxxxxxxxxx termina....	
+		
+		
+		
 	}
 	
 }
