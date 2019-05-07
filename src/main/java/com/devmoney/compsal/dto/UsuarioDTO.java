@@ -14,8 +14,6 @@ import com.devmoney.compsal.domain.UsuarioNew;
 public class UsuarioDTO implements Serializable {
 	private static final long serialVersionUID = 1L;
 	
-	private String vivi;
-	
 	private Integer id;
 	
 	@NotEmpty(message="Preenchimento do Nome é Obrigatório!")
