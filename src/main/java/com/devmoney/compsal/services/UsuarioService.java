@@ -31,6 +31,16 @@ public class UsuarioService {
 		return repo.findAll();
 	}
 	
+	public List<UsuarioNew> findBySexoM() {
+		
+		return repo.findBySexo("M");
+	}
+	
+	public List<UsuarioNew> findBySexoF() {
+		
+		return repo.findBySexo("F");
+	}
+		
 	public UsuarioNew insert(UsuarioNew obj) {
 		obj.setId(null);
 		return repo.save(obj);
@@ -72,7 +82,7 @@ public class UsuarioService {
 	public void updateUsuario(UsuarioNew newObj, UsuarioNew obj) {
 		System.err.println("*** updateUsuario:");
 		newObj.setNome(obj.getNome());
-		//newObj.setCpf(obj.getCpf()); ///// não alterar
+		newObj.setCpf(obj.getCpf()); ///// não alterar
 		newObj.setApelido(obj.getApelido());
 		newObj.setSexo(obj.getSexo());		
 		newObj.setDtNascimento(obj.getDtNascimento());

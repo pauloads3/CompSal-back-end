@@ -36,6 +36,13 @@ public class UsuarioResource {
 		return ResponseEntity.ok().body(usuario);
 	}
 	
+/*	@RequestMapping(value="/{nome}",method=RequestMethod.GET)
+	@CrossOrigin(origins="*")
+	public ResponseEntity<UsuarioNew> find(@PathVariable String nome) {
+		UsuarioNew usuario = service.findCpf(nome);
+		return ResponseEntity.ok().body(usuario);
+	}
+*/
 	@RequestMapping(method=RequestMethod.GET)
 	public ResponseEntity<List<UsuarioDTO>> findAll() {	
 		List<UsuarioNew> list = service.findAll();
@@ -43,6 +50,19 @@ public class UsuarioResource {
 		return ResponseEntity.ok().body(listDTO);
 	}
 	
+	@RequestMapping(value="/findAllM", method=RequestMethod.GET)
+	public ResponseEntity<List<UsuarioDTO>> findAllM() {	
+		List<UsuarioNew> list = service.findBySexoM();
+		List<UsuarioDTO> listDTO = list.stream().map(obj -> new UsuarioDTO(obj)).collect(Collectors.toList());
+		return ResponseEntity.ok().body(listDTO);
+	}
+		
+	@RequestMapping(value="/findAllF", method=RequestMethod.GET)
+	public ResponseEntity<List<UsuarioDTO>> findAllF() {	
+		List<UsuarioNew> list = service.findBySexoF();
+		List<UsuarioDTO> listDTO = list.stream().map(obj -> new UsuarioDTO(obj)).collect(Collectors.toList());
+		return ResponseEntity.ok().body(listDTO);
+	}
 
 	@RequestMapping(value="/createUsuario", method=RequestMethod.POST)
 	public ResponseEntity<UsuarioNew> insert(@Valid @RequestBody UsuarioDTO objDto) {

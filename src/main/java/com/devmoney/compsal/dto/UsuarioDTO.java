@@ -185,19 +185,5 @@ public class UsuarioDTO implements Serializable {
 		return serialVersionUID;
 	}
 
-	public void validaData(){
-		 Date data = null;
-	    String dataTexto = new String("30/02/2006");
-	    SimpleDateFormat format = new SimpleDateFormat("dd/MM/yyyy");
-	    	try {
-	    		format.setLenient(false);
-	    		data = format.parse(dataTexto);
-	    	} catch (ParseException e) {
-	    		System.err.println("*** validaData: O fulano escreveu a data Errada");
-	    		//JOptionPane.showMessageDialog(null,"O Mané escreveu a data Errada","AVISO",JOptionPane.WARNING_MESSAGE);
-	    	}
-	}
-	
-	
-		
+			
 }
