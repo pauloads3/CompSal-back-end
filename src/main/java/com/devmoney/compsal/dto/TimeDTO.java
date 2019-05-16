@@ -19,18 +19,18 @@ public class TimeDTO implements Serializable {
 	private Integer id;
 	private String nome;
 	private String genero;
-	private UsuarioNew goleiro;
-	private UsuarioNew fixo;
-	private UsuarioNew alaDireita;
-	private UsuarioNew alaEsquerda;
-	private UsuarioNew pivo;
-	private UsuarioNew treinador;
-	private UsuarioNew massagista;
-	private UsuarioNew jogadorReserva1;
-	private UsuarioNew jogadorReserva2;
-	private UsuarioNew jogadorReserva3;
-	private UsuarioNew jogadorReserva4;
-	private UsuarioNew jogadorReserva5;
+	private Integer goleiro;
+	private Integer fixo;
+	private Integer alaDireita;
+	private Integer alaEsquerda;
+	private Integer pivo;
+	private Integer treinador;
+	private Integer massagista;
+	private Integer jogadorReserva1;
+	private Integer jogadorReserva2;
+	private Integer jogadorReserva3;
+	private Integer jogadorReserva4;
+	private Integer jogadorReserva5;
 	
 	
 
@@ -82,99 +82,99 @@ public class TimeDTO implements Serializable {
 		this.genero = genero;
 	}
 
-	public UsuarioNew getGoleiro() {
+	public Integer getGoleiro() {
 		return goleiro;
 	}
 
-	public void setGoleiro(UsuarioNew goleiro) {
+	public void setGoleiro(Integer goleiro) {
 		this.goleiro = goleiro;
 	}
 
-	public UsuarioNew getFixo() {
+	public Integer getFixo() {
 		return fixo;
 	}
 
-	public void setFixo(UsuarioNew fixo) {
+	public void setFixo(Integer fixo) {
 		this.fixo = fixo;
 	}
 
-	public UsuarioNew getAlaDireita() {
+	public Integer getAlaDireita() {
 		return alaDireita;
 	}
 
-	public void setAlaDireita(UsuarioNew alaDireita) {
+	public void setAlaDireita(Integer alaDireita) {
 		this.alaDireita = alaDireita;
 	}
 
-	public UsuarioNew getAlaEsquerda() {
+	public Integer getAlaEsquerda() {
 		return alaEsquerda;
 	}
 
-	public void setAlaEsquerda(UsuarioNew alaEsquerda) {
+	public void setAlaEsquerda(Integer alaEsquerda) {
 		this.alaEsquerda = alaEsquerda;
 	}
 
-	public UsuarioNew getPivo() {
+	public Integer getPivo() {
 		return pivo;
 	}
 
-	public void setPivo(UsuarioNew pivo) {
+	public void setPivo(Integer pivo) {
 		this.pivo = pivo;
 	}
 
-	public UsuarioNew getTreinador() {
+	public Integer getTreinador() {
 		return treinador;
 	}
 
-	public void setTreinador(UsuarioNew treinador) {
+	public void setTreinador(Integer treinador) {
 		this.treinador = treinador;
 	}
 
-	public UsuarioNew getMassagista() {
+	public Integer getMassagista() {
 		return massagista;
 	}
 
-	public void setMassagista(UsuarioNew massagista) {
+	public void setMassagista(Integer massagista) {
 		this.massagista = massagista;
 	}
 
-	public UsuarioNew getJogadorReserva1() {
+	public Integer getJogadorReserva1() {
 		return jogadorReserva1;
 	}
 
-	public void setJogadorReserva1(UsuarioNew jogadorReserva1) {
+	public void setJogadorReserva1(Integer jogadorReserva1) {
 		this.jogadorReserva1 = jogadorReserva1;
 	}
 
-	public UsuarioNew getJogadorReserva2() {
+	public Integer getJogadorReserva2() {
 		return jogadorReserva2;
 	}
 
-	public void setJogadorReserva2(UsuarioNew jogadorReserva2) {
+	public void setJogadorReserva2(Integer jogadorReserva2) {
 		this.jogadorReserva2 = jogadorReserva2;
 	}
 
-	public UsuarioNew getJogadorReserva3() {
+	public Integer getJogadorReserva3() {
 		return jogadorReserva3;
 	}
 
-	public void setJogadorReserva3(UsuarioNew jogadorReserva3) {
+	public void setJogadorReserva3(Integer jogadorReserva3) {
 		this.jogadorReserva3 = jogadorReserva3;
 	}
 
-	public UsuarioNew getJogadorReserva4() {
+	public Integer getJogadorReserva4() {
 		return jogadorReserva4;
 	}
 
-	public void setJogadorReserva4(UsuarioNew jogadorReserva4) {
+	public void setJogadorReserva4(Integer jogadorReserva4) {
 		this.jogadorReserva4 = jogadorReserva4;
 	}
 
-	public UsuarioNew getJogadorReserva5() {
+	public Integer getJogadorReserva5() {
 		return jogadorReserva5;
 	}
 
-	public void setJogadorReserva5(UsuarioNew jogadorReserva5) {
+	public void setJogadorReserva5(Integer jogadorReserva5) {
 		this.jogadorReserva5 = jogadorReserva5;
 	}
 
@@ -183,6 +183,5 @@ public class TimeDTO implements Serializable {
 	}
 
 		
-	
 	
 }

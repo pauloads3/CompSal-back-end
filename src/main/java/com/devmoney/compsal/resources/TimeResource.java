@@ -48,7 +48,7 @@ public class TimeResource {
 	
 	@RequestMapping(value="/createTime", method=RequestMethod.POST)
 	@CrossOrigin(origins="*")
-	public ResponseEntity<Time> insert(@Valid @RequestBody TimeDTO objDto) {
+	public ResponseEntity<Time> insert(@RequestBody TimeDTO objDto) {
 		System.err.println(objDto.getNome() + objDto.getGenero());
 		Time time = new Time();		
 		time = service.fromDTO(objDto);

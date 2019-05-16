@@ -16,139 +16,180 @@ public class Time implements Serializable {
 	private Integer id;
 	private String nome;
 	private String genero;
-	private UsuarioNew goleiro;
-	private UsuarioNew fixo;
-	private UsuarioNew alaDireita;
-	private UsuarioNew alaEsquerda;
-	private UsuarioNew pivo;
-	private UsuarioNew treinador;
-	private UsuarioNew massagista;
-	private UsuarioNew jogadorReserva1;
-	private UsuarioNew jogadorReserva2;
-	private UsuarioNew jogadorReserva3;
-	private UsuarioNew jogadorReserva4;
-	private UsuarioNew jogadorReserva5;
+	private Integer goleiro;
+	private Integer fixo;
+	private Integer alaDireita;
+	private Integer alaEsquerda;
+	private Integer pivo;
+	private Integer treinador;
+	private Integer massagista;
+	private Integer jogadorReserva1;
+	private Integer jogadorReserva2;
+	private Integer jogadorReserva3;
+	private Integer jogadorReserva4;
+	private Integer jogadorReserva5;
 	
 	public Time() {
 		
 	}
 	
-	public Time(Integer id, String nome, String genero) {
+	public Time(Integer id, 
+			String nome, 
+			String genero, 
+			Integer goleiro, 
+			Integer fixo, 
+			Integer alaDireita, 
+			Integer alaEsquerda,
+			Integer pivo,
+			Integer treinador,
+			Integer massagista,
+			Integer jogadorReserva1,
+			Integer jogadorReserva2,
+			Integer jogadorReserva3,
+			Integer jogadorReserva4,
+			Integer jogadorReserva5
+			
+			) {
 		this.id = id;
 		this.nome = nome;
 		this.genero = genero;
-		/*this.goleiro = obj.getGoleiro();
-		this.fixo = obj.getFixo();
-		this.alaDireita = obj.getAlaDireita();
-		this.alaEsquerda = obj.getAlaEsquerda();
-		this.pivo = obj.getPivo();
-		this.treinador = obj.getTreinador();
-		this.massagista = obj.getMassagista();
-		this.jogadorReserva1 = obj.getJogadorReserva1();
-		this.jogadorReserva2 = obj.getJogadorReserva2();
-		this.jogadorReserva3 = obj.getJogadorReserva3();
-		this.jogadorReserva4 = obj.getJogadorReserva4();
-		this.jogadorReserva5 = obj.getJogadorReserva5();*/
+		this.goleiro = goleiro;
+		this.fixo = fixo;
+		this.alaDireita = alaDireita;
+		this.alaEsquerda =alaEsquerda;
+		this.pivo = pivo;
+		this.treinador = treinador;
+		this.massagista = massagista;
+		this.jogadorReserva1 = jogadorReserva1;
+		this.jogadorReserva2 = jogadorReserva2;
+		this.jogadorReserva3 = jogadorReserva3;
+		this.jogadorReserva4 = jogadorReserva4;
+		this.jogadorReserva5 = jogadorReserva5;
 	
 	}
-	
-	
-	
+
 	public Integer getId() {
 		return id;
 	}
+
 	public void setId(Integer id) {
 		this.id = id;
 	}
+
 	public String getNome() {
 		return nome;
 	}
+
 	public void setNome(String nome) {
 		this.nome = nome;
 	}
+
 	public String getGenero() {
 		return genero;
 	}
+
 	public void setGenero(String genero) {
 		this.genero = genero;
 	}
-	public UsuarioNew getGoleiro() {
+
+	public Integer getGoleiro() {
 		return goleiro;
 	}
-	public void setGoleiro(UsuarioNew goleiro) {
+
+	public void setGoleiro(Integer goleiro) {
 		this.goleiro = goleiro;
 	}
-	public UsuarioNew getFixo() {
+
+	public Integer getFixo() {
 		return fixo;
 	}
-	public void setFixo(UsuarioNew fixo) {
+
+	public void setFixo(Integer fixo) {
 		this.fixo = fixo;
 	}
-	public UsuarioNew getAlaDireita() {
+
+	public Integer getAlaDireita() {
 		return alaDireita;
 	}
-	public void setAlaDireita(UsuarioNew alaDireita) {
+
+	public void setAlaDireita(Integer alaDireita) {
 		this.alaDireita = alaDireita;
 	}
-	public UsuarioNew getAlaEsquerda() {
+
+	public Integer getAlaEsquerda() {
 		return alaEsquerda;
 	}
-	public void setAlaEsquerda(UsuarioNew alaEsquerda) {
+
+	public void setAlaEsquerda(Integer alaEsquerda) {
 		this.alaEsquerda = alaEsquerda;
 	}
-	public UsuarioNew getPivo() {
+
+	public Integer getPivo() {
 		return pivo;
 	}
-	public void setPivo(UsuarioNew pivo) {
+
+	public void setPivo(Integer pivo) {
 		this.pivo = pivo;
 	}
-	public UsuarioNew getTreinador() {
+
+	public Integer getTreinador() {
 		return treinador;
 	}
-	public void setTreinador(UsuarioNew treinador) {
+
+	public void setTreinador(Integer treinador) {
 		this.treinador = treinador;
 	}
-	public UsuarioNew getMassagista() {
+
+	public Integer getMassagista() {
 		return massagista;
 	}
-	public void setMassagista(UsuarioNew massagista) {
+
+	public void setMassagista(Integer massagista) {
 		this.massagista = massagista;
 	}
-	public UsuarioNew getJogadorReserva1() {
+
+	public Integer getJogadorReserva1() {
 		return jogadorReserva1;
 	}
-	public void setJogadorReserva1(UsuarioNew jogadorReserva1) {
+
+	public void setJogadorReserva1(Integer jogadorReserva1) {
 		this.jogadorReserva1 = jogadorReserva1;
 	}
-	public UsuarioNew getJogadorReserva2() {
+
+	public Integer getJogadorReserva2() {
 		return jogadorReserva2;
 	}
-	public void setJogadorReserva2(UsuarioNew jogadorReserva2) {
+
+	public void setJogadorReserva2(Integer jogadorReserva2) {
 		this.jogadorReserva2 = jogadorReserva2;
 	}
-	public UsuarioNew getJogadorReserva3() {
+
+	public Integer getJogadorReserva3() {
 		return jogadorReserva3;
 	}
-	public void setJogadorReserva3(UsuarioNew jogadorReserva3) {
+
+	public void setJogadorReserva3(Integer jogadorReserva3) {
 		this.jogadorReserva3 = jogadorReserva3;
 	}
-	public UsuarioNew getJogadorReserva4() {
+
+	public Integer getJogadorReserva4() {
 		return jogadorReserva4;
 	}
-	public void setJogadorReserva4(UsuarioNew jogadorReserva4) {
+
+	public void setJogadorReserva4(Integer jogadorReserva4) {
 		this.jogadorReserva4 = jogadorReserva4;
 	}
-	public UsuarioNew getJogadorReserva5() {
+
+	public Integer getJogadorReserva5() {
 		return jogadorReserva5;
 	}
-	public void setJogadorReserva5(UsuarioNew jogadorReserva5) {
+
+	public void setJogadorReserva5(Integer jogadorReserva5) {
 		this.jogadorReserva5 = jogadorReserva5;
 	}
+
 	public static long getSerialversionuid() {
 		return serialVersionUID;
 	}
 	
-	
-	
-
 }

@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.devmoney.compsal.Repository.TimeRepository;
+import com.devmoney.compsal.Repository.UsuarioRepository;
 import com.devmoney.compsal.domain.Time;
 import com.devmoney.compsal.dto.TimeDTO;
 
@@ -15,6 +16,7 @@ public class TimeService {
 	
 	@Autowired
 	private TimeRepository repo;
+	private UsuarioService UsuService;
 	
 	public Time findId(Integer id) {
 		Optional<Time> obj = repo.findById(id);
@@ -43,18 +45,19 @@ public class TimeService {
 	}	
 	
 	public Time fromDTO(TimeDTO objDto) {
-		return new Time(null, objDto.getNome(), objDto.getGenero()/*,
-				objDto.get, 
-				objDto.get, 
-				objDto.get,
-				objDto.get,
-				objDto.get,
-				objDto.get,
-				objDto.getNumeroEnd(),
-				objDto.getCep(),
-				objDto.getBairro(),
-				objDto.getMunicipio(),
-				objDto.getUf()*/
+		return new Time(null, objDto.getNome(), objDto.getGenero(),
+				objDto.getGoleiro(),
+				objDto.getFixo(), 
+				objDto.getAlaDireita(), 
+				objDto.getAlaEsquerda(),
+				objDto.getPivo(),
+				objDto.getTreinador(),
+				objDto.getMassagista(),
+				objDto.getJogadorReserva1(),
+				objDto.getJogadorReserva2(),
+				objDto.getJogadorReserva3(),
+				objDto.getJogadorReserva4(),
+				objDto.getJogadorReserva5()
 				);
 	}
 	
