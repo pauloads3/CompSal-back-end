@@ -45,7 +45,7 @@ public class TimeService {
 	}	
 	
 	public Time fromDTO(TimeDTO objDto) {
-		return new Time(null, objDto.getNome(), objDto.getGenero(),
+		return new Time(null, objDto.getNome(), objDto.getGenero(), 
 				objDto.getGoleiro(),
 				objDto.getFixo(), 
 				objDto.getAlaDireita(), 
