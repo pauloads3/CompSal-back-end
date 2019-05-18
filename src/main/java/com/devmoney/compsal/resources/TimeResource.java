@@ -57,5 +57,34 @@ public class TimeResource {
 		System.err.println(time.getNome() + time.getGenero());
 		return  ResponseEntity.ok().body(time);				
 		}
+	
+	@RequestMapping(value="/updateTime", method=RequestMethod.POST)
+	public ResponseEntity<Time> update(@Valid @RequestBody Time objDto) {
+		
+			service.update(objDto);
+				
+			System.err.println("*** updateTime:");
+			System.err.println(objDto.getId());
+			URI uri = null;	
+			System.err.println(ResponseEntity.created(uri).build());
+			return  ResponseEntity.ok().body(objDto);
+		
 	}
+	
+	@RequestMapping(value="/deleteTime", method=RequestMethod.POST)
+	public ResponseEntity<Time> delete(@Valid @RequestBody Integer id) {
+		Time time = new Time();
+		time = null;
+		System.err.println("*** deleteUsuario: objDto." + "id=" + id);
+		
+		try {
+			service.delete(id);			
+		} catch (Exception e) {
+			System.err.println(e);
+			time = service.findId(id);
+		}		
+		return  ResponseEntity.ok().body(time);
+	
+	}
+}
 

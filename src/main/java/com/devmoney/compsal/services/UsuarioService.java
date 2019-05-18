@@ -1,13 +1,15 @@
 package com.devmoney.compsal.services;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-
+import com.devmoney.compsal.Repository.TimeRepository;
 import com.devmoney.compsal.Repository.UsuarioRepository;
+import com.devmoney.compsal.domain.Time;
 import com.devmoney.compsal.domain.UsuarioNew;
 import com.devmoney.compsal.dto.UsuarioDTO;
 
@@ -16,6 +18,9 @@ public class UsuarioService {
 	
 	@Autowired
 	private UsuarioRepository repo;
+	
+	@Autowired
+	private TimeRepository repoTime;
 	
 	public UsuarioNew findId(Integer id) {
 		Optional<UsuarioNew> obj = repo.findById(id);
@@ -58,11 +63,79 @@ public class UsuarioService {
 		repo.deleteById(id);
 	}
 	
-	
-	
-	//public UsuarioNew fromDTO(UsuarioDTO objDto) {
-	//	return new UsuarioNew(objDto.getId(), objDto.getNome(), null);
-	//}
+	public String deleteVerifica(Integer id) {
+		Time num2 = new Time();
+		//Optional<Time> time = repoTime.findById(id);
+		String msg = "";
+		try {
+			if (repoTime.findByGoleiro(id) != null) {
+				num2 = repoTime.findByGoleiro(id);
+				System.err.println(num2.getNome());
+				msg = "O usuário não pode ser excluído pois está cadastro como Goleiro no Time " + num2.getNome();
+				return msg;
+			} else if (repoTime.findByFixo(id) != null) {
+				num2 = repoTime.findByFixo(id);
+				System.err.println(num2.getNome());
+				msg = "O usuário não pode ser excluído pois está cadastro como Fixo no Time " + num2.getNome();
+				return msg;
+			}else if (repoTime.findByAlaDireita(id) != null) {
+				num2 = repoTime.findByAlaDireita(id);
+				System.err.println(num2.getNome());
+				msg = "O usuário não pode ser excluído pois está cadastro como Ala Direita no Time " + num2.getNome();
+				return msg;
+			}else if (repoTime.findByAlaEsquerda(id) != null) {
+				num2 = repoTime.findByAlaEsquerda(id);
+				System.err.println(num2.getNome());
+				msg = "O usuário não pode ser excluído pois está cadastro como Ala Esquerda no Time " + num2.getNome();
+				return msg;
+			}else if (repoTime.findByPivo(id) != null) {
+				num2 = repoTime.findByPivo(id);
+				System.err.println(num2.getNome());
+				msg = "O usuário não pode ser excluído pois está cadastro como Pivô no Time " + num2.getNome();
+				return msg;
+			}else if (repoTime.findByTreinador(id) != null) {				
+				num2 = repoTime.findByTreinador(id);
+				System.err.println(num2.getNome());
+				msg = "O usuário não pode ser excluído pois está cadastro como Treinador no Time " + num2.getNome();
+				return msg;
+			}else if (repoTime.findByMassagista(id) != null) {				
+				num2 = repoTime.findByMassagista(id);
+				System.err.println(num2.getNome());
+				msg = "O usuário não pode ser excluído pois está cadastro como Massagista no Time " + num2.getNome();
+				return msg;
+			}else if (repoTime.findByJogadorReserva1(id) != null) {				
+				num2 = repoTime.findByJogadorReserva1(id);
+				System.err.println(num2.getNome());
+				msg = "O usuário não pode ser excluído pois está cadastro como Jogador Reserva 1 no Time " + num2.getNome();
+				return msg;
+			}else if (repoTime.findByJogadorReserva2(id) != null) {
+				num2 = repoTime.findByJogadorReserva2(id);
+				System.err.println(num2.getNome());
+				msg = "O usuário não pode ser excluído pois está cadastro como Jogador Reserva 2 no Time " + num2.getNome();
+				return msg;
+			}else if (repoTime.findByJogadorReserva3(id) != null) {
+				num2 = repoTime.findByJogadorReserva3(id);
+				System.err.println(num2.getNome());
+				msg = "O usuário não pode ser excluído pois está cadastro como Jogador Reserva 3 no Time " + num2.getNome();
+				return msg;
+			}else if (repoTime.findByJogadorReserva4(id) != null) {
+				num2 = repoTime.findByJogadorReserva4(id);
+				System.err.println(num2.getNome());
+				msg = "O usuário não pode ser excluído pois está cadastro como Jogador Reserva 4 no Time " + num2.getNome();
+				return msg;
+			}else if (repoTime.findByJogadorReserva5(id) != null) {
+				num2 = repoTime.findByJogadorReserva5(id);
+				System.err.println(num2.getNome());
+				msg = "O usuário não pode ser excluído pois está cadastro como Jogador Reserva 5 no Time " + num2.getNome();
+				return msg;
+			}else {
+				return "OK";
+			}
+			
+		} catch (Exception e) {
+			return "Erro: " + e.getMessage();
+		} 		
+	}
 	
 	public UsuarioNew fromDTO(UsuarioDTO objDto) {
 		return new UsuarioNew(null, objDto.getNome(), objDto.getCpf(),

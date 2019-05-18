@@ -97,12 +97,26 @@ public class UsuarioResource {
 	}
 	
 	@RequestMapping(value="/deleteUsuario", method=RequestMethod.POST)
-	public ResponseEntity<UsuarioNew> delete(@Valid @RequestBody Integer id) {
+	public ResponseEntity<String> delete(@Valid @RequestBody Integer id) {
 		System.err.println("*** deleteUsuario: objDto."
 				+ "id=" + id
-				);
-		service.delete(id);
-		return null;
+				);		
+		String msg = "";
+		try {
+			 msg =service.deleteVerifica(id);
+			System.err.println(msg);
+			
+			service.deleteVerifica(id);
+			
+			if (msg.equals("OK")) {
+				service.delete(id);
+			}
+			
+		} catch (Exception e) {
+			System.err.println("Erro " + e);
+		}
+		
+		return ResponseEntity.ok().body(msg);
 	}
 	
 }
