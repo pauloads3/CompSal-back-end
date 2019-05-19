@@ -23,68 +23,107 @@ import com.devmoney.compsal.dto.TimeDTO;
 import com.devmoney.compsal.dto.UsuarioDTO;
 import com.devmoney.compsal.services.TimeService;
 
-
 @RestController
-@RequestMapping(value="/times")
-@CrossOrigin(origins="*")
+@RequestMapping(value = "/times")
+@CrossOrigin(origins = "*")
 public class TimeResource {
-	
+
 	@Autowired
 	private TimeService service;
-	
-	@RequestMapping(value="/{id}",method=RequestMethod.GET)
-	@CrossOrigin(origins="*")
+
+	@RequestMapping(value = "/{id}", method = RequestMethod.GET)
+	@CrossOrigin(origins = "*")
 	public ResponseEntity<Time> find(@PathVariable Integer id) {
 		Time time = service.findId(id);
 		return ResponseEntity.ok().body(time);
 	}
-	
-	@RequestMapping(method=RequestMethod.GET)
-	public ResponseEntity<List<TimeDTO>> findAll() {	
+
+	@RequestMapping(method = RequestMethod.GET)
+	public ResponseEntity<List<TimeDTO>> findAll() {
 		List<Time> list = service.findAll();
 		List<TimeDTO> listDTO = list.stream().map(obj -> new TimeDTO(obj)).collect(Collectors.toList());
 		return ResponseEntity.ok().body(listDTO);
-	}	
-	
-	@RequestMapping(value="/createTime", method=RequestMethod.POST)
-	@CrossOrigin(origins="*")
+	}
+
+	@RequestMapping(value = "/createTime", method = RequestMethod.POST)
+	@CrossOrigin(origins = "*")
 	public ResponseEntity<Time> insert(@RequestBody TimeDTO objDto) {
-		System.err.println(objDto.getNome() + objDto.getGenero());
-		Time time = new Time();		
-		time = service.fromDTO(objDto);
-		System.err.println(time.getNome() + time.getGenero());
-		time = service.insert(time);
-		System.err.println(time.getNome() + time.getGenero());
-		return  ResponseEntity.ok().body(time);				
+		Time time = new Time();
+		time = service.fromDTO(objDto);		
+		String msg = "";
+		msg = service.insertVerifica(time);
+		if (msg.equals("OK")) {
+			time = service.insert(time);
 		}
-	
-	@RequestMapping(value="/updateTime", method=RequestMethod.POST)
+		System.err.println(msg);
+		System.err.println("***/createTime" + time.getNome() + time.getGenero());
+		return ResponseEntity.ok().body(time);
+	}
+
+	@RequestMapping(value = "/createTimeOk", method = RequestMethod.POST)
+	@CrossOrigin(origins = "*")
+	public ResponseEntity<String> insertOK(@RequestBody TimeDTO objDto) {
+		Time time = new Time();
+		time = service.fromDTO(objDto);
+		String msg = "";
+		msg = service.insertVerifica(time);	
+		System.err.println(msg);
+		return ResponseEntity.ok().body(msg);
+	}
+
+	@RequestMapping(value = "/updateTime", method = RequestMethod.POST)
 	public ResponseEntity<Time> update(@Valid @RequestBody Time objDto) {
-		
+
+		String msg = "";
+		msg = service.insertVerifica(objDto);
+		if (msg.equals("OK")) {
 			service.update(objDto);
-				
-			System.err.println("*** updateTime:");
-			System.err.println(objDto.getId());
-			URI uri = null;	
-			System.err.println(ResponseEntity.created(uri).build());
-			return  ResponseEntity.ok().body(objDto);
-		
+		}
+		System.err.println("*** updateTime:");
+		System.err.println(objDto.getId());
+		URI uri = null;
+		System.err.println(ResponseEntity.created(uri).build());
+		return ResponseEntity.ok().body(objDto);
+
 	}
 	
-	@RequestMapping(value="/deleteTime", method=RequestMethod.POST)
+	@RequestMapping(value = "/updateTimeOk", method = RequestMethod.POST)
+	@CrossOrigin(origins = "*")
+	public ResponseEntity<String> updateOK(@RequestBody Time objDto) {
+		String msg = "";
+		msg = service.updateVerifica(objDto).toString();	
+		System.err.println(msg);
+		return ResponseEntity.ok().body(msg);
+	}
+
+	@RequestMapping(value = "/deleteTime", method = RequestMethod.POST)
 	public ResponseEntity<Time> delete(@Valid @RequestBody Integer id) {
 		Time time = new Time();
 		time = null;
 		System.err.println("*** deleteUsuario: objDto." + "id=" + id);
-		
+
 		try {
-			service.delete(id);			
+			service.delete(id);
 		} catch (Exception e) {
 			System.err.println(e);
 			time = service.findId(id);
-		}		
-		return  ResponseEntity.ok().body(time);
+		}
+		return ResponseEntity.ok().body(time);
+
+	}
 	
+	@RequestMapping(value = "/testTime", method = RequestMethod.POST)
+	public ResponseEntity<Time> test() {
+		Time time = new Time();		
+		time.setNome("Sport");
+		time.setGenero("M");
+		String msg = "";
+		
+		msg = service.findByNomeAndGenero(time.getNome(), time.getGenero()).getGoleiro().toString();	
+		
+		System.err.println(msg);
+		
+		return ResponseEntity.ok().body(null); 
+
 	}
 }
-
