@@ -74,11 +74,8 @@ public class TimeResource {
 	@RequestMapping(value = "/updateTime", method = RequestMethod.POST)
 	public ResponseEntity<Time> update(@Valid @RequestBody Time objDto) {
 
-		String msg = "";
-		msg = service.insertVerifica(objDto);
-		if (msg.equals("OK")) {
 			service.update(objDto);
-		}
+		
 		System.err.println("*** updateTime:");
 		System.err.println(objDto.getId());
 		URI uri = null;
