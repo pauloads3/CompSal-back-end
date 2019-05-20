@@ -33,5 +33,7 @@ public interface TimeRepository extends JpaRepository<Time, Integer> {
 	Time findByJogadorReserva5(Integer id);
 
 	Time findByNomeAndGenero(String nome, String genero);
+
+	List<Time> findByGenero(String string);
 	
 }

@@ -1,17 +1,11 @@
 package com.devmoney.compsal.dto;
 
 import java.io.Serializable;
-import java.text.ParseException;
-import java.text.SimpleDateFormat;
-import java.util.Date;
 
 import javax.validation.constraints.NotEmpty;
 
-import org.hibernate.validator.constraints.Length;
-
 import com.devmoney.compsal.domain.Jogo;
-import com.devmoney.compsal.domain.Time;
-import com.devmoney.compsal.domain.UsuarioNew;
+
 
 public class JogoDTO implements Serializable {
 	private static final long serialVersionUID = 1L;
@@ -21,9 +15,9 @@ public class JogoDTO implements Serializable {
 	@NotEmpty(message="Preenchimento do Gênero é Obrigatório!")
 	private String genero;
 	@NotEmpty(message="Preenchimento do Time A é Obrigatório!")
-	private Integer timeA;
+	private String timeA;
 	@NotEmpty(message="Preenchimento do Time B é Obrigatório!")
-	private Integer timeB;
+	private String timeB;	
 	@NotEmpty(message="Preenchimento do Árbitro Principal é Obrigatório!")
 	private Integer arbitroPrincipal;
 	@NotEmpty(message="Preenchimento do Árbitro Auxiliar é Obrigatório!")
@@ -71,19 +65,19 @@ public class JogoDTO implements Serializable {
 		this.genero = genero;
 	}
 
-	public Integer getTimeA() {
+	public String getTimeA() {
 		return timeA;
 	}
 
-	public void setTimeA(Integer timeA) {
+	public void setTimeA(String timeA) {
 		this.timeA = timeA;
 	}
 
-	public Integer getTimeB() {
+	public String getTimeB() {
 		return timeB;
 	}
 
-	public void setTimeB(Integer timeB) {
+	public void setTimeB(String timeB) {
 		this.timeB = timeB;
 	}
 

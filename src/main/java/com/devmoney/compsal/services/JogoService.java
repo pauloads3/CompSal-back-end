@@ -8,6 +8,7 @@ import org.springframework.stereotype.Service;
 
 import com.devmoney.compsal.Repository.JogoRepository;
 import com.devmoney.compsal.domain.Jogo;
+import com.devmoney.compsal.domain.Time;
 import com.devmoney.compsal.dto.JogoDTO;
 
 @Service
@@ -25,6 +26,21 @@ public class JogoService {
 		return repo.findAll();
 	}
 
+	public List<Jogo> findByArbitroPrincipal(Integer id) {
+
+		return repo.findByArbitroPrincipal(id);
+	}
+	
+	public List<Jogo> findByArbitroAuxiliar(Integer id) {
+
+		return repo.findByArbitroAuxiliar(id);
+	}
+	public List<Jogo> findByAnotador(Integer id) {
+
+		return repo.findByAnotador(id);
+	}
+	
+	
 	public Jogo insert(Jogo obj) {
 		obj.setId(null);
 		return repo.save(obj);

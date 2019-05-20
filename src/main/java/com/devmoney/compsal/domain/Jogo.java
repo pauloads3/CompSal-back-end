@@ -15,8 +15,8 @@ public class Jogo implements Serializable {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Integer id;
 	private String genero;
-	private Integer timeA;
-	private Integer timeB;
+	private String timeA;
+	private String timeB;
 	private Integer arbitroPrincipal;
 	private Integer arbitroAuxiliar;
 	private Integer anotador;
@@ -28,7 +28,7 @@ public class Jogo implements Serializable {
 
 	}
 
-	public Jogo(Integer id, String genero, Integer timeA, Integer timeB, Integer arbitroPrincipal,
+	public Jogo(Integer id, String genero, String timeA, String timeB, Integer arbitroPrincipal,
 			Integer arbitroAuxiliar, Integer anotador, String dataJogo, String horario, String localJogo) {
 		this.id = id;
 		this.genero = genero;
@@ -59,19 +59,19 @@ public class Jogo implements Serializable {
 		this.genero = genero;
 	}
 
-	public Integer getTimeA() {
+	public String getTimeA() {
 		return timeA;
 	}
 
-	public void setTimeA(Integer timeA) {
+	public void setTimeA(String timeA) {
 		this.timeA = timeA;
 	}
 
-	public Integer getTimeB() {
+	public String getTimeB() {
 		return timeB;
 	}
 
-	public void setTimeB(Integer timeB) {
+	public void setTimeB(String timeB) {
 		this.timeB = timeB;
 	}
 

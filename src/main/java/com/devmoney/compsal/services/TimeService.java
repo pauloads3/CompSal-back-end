@@ -30,6 +30,16 @@ public class TimeService {
 		return repo.findAll();
 	}
 
+	public List<Time> findByGeneroM() {
+
+		return repo.findByGenero("M");
+	}
+
+	public List<Time> findByGeneroF() {
+
+		return repo.findByGenero("F");
+	}
+
 	public Time findByNomeAndGenero(String nome, String genero) {
 
 		return repo.findByNomeAndGenero(nome, genero);

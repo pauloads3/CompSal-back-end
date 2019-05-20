@@ -45,6 +45,20 @@ public class TimeResource {
 		return ResponseEntity.ok().body(listDTO);
 	}
 
+	@RequestMapping(value="/findAllM", method=RequestMethod.GET)
+	public ResponseEntity<List<TimeDTO>> findAllM() {	
+		List<Time> list = service.findByGeneroM();
+		List<TimeDTO> listDTO = list.stream().map(obj -> new TimeDTO(obj)).collect(Collectors.toList());
+		return ResponseEntity.ok().body(listDTO);
+	}
+		
+	@RequestMapping(value="/findAllF", method=RequestMethod.GET)
+	public ResponseEntity<List<TimeDTO>> findAllF() {	
+		List<Time> list = service.findByGeneroF();
+		List<TimeDTO> listDTO = list.stream().map(obj -> new TimeDTO(obj)).collect(Collectors.toList());
+		return ResponseEntity.ok().body(listDTO);
+	}
+	
 	@RequestMapping(value = "/createTime", method = RequestMethod.POST)
 	@CrossOrigin(origins = "*")
 	public ResponseEntity<Time> insert(@RequestBody TimeDTO objDto) {

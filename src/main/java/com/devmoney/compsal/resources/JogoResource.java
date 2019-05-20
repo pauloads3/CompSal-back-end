@@ -46,7 +46,7 @@ public class JogoResource {
 		return ResponseEntity.ok().body(listDTO);
 	}
 
-	@RequestMapping(value = "/createTime", method = RequestMethod.POST)
+	@RequestMapping(value = "/createJogo", method = RequestMethod.POST)
 	@CrossOrigin(origins = "*")
 	public ResponseEntity<Jogo> insert(@RequestBody JogoDTO objDto) {
 		Jogo jogo = new Jogo();
@@ -71,20 +71,18 @@ public class JogoResource {
 		System.err.println(msg);
 		return ResponseEntity.ok().body(msg);
 	}
-
-	@RequestMapping(value = "/updateTime", method = RequestMethod.POST)
-	public ResponseEntity<Time> update(@Valid @RequestBody Time objDto) {
-
+*/
+	@RequestMapping(value = "/updateJogo", method = RequestMethod.POST)
+	public ResponseEntity<Jogo> update(@Valid @RequestBody Jogo objDto) {
 		service.update(objDto);
-
-		System.err.println("*** updateTime:");
+		System.err.println("*** updateJogo:");
 		System.err.println(objDto.getId());
 		URI uri = null;
 		System.err.println(ResponseEntity.created(uri).build());
 		return ResponseEntity.ok().body(objDto);
 
 	}
-
+/*
 	@RequestMapping(value = "/updateTimeOk", method = RequestMethod.POST)
 	@CrossOrigin(origins = "*")
 	public ResponseEntity<String> updateOK(@RequestBody Time objDto) {
@@ -94,19 +92,19 @@ public class JogoResource {
 		return ResponseEntity.ok().body(msg);
 	}
 
-	@RequestMapping(value = "/deleteTime", method = RequestMethod.POST)
-	public ResponseEntity<Time> delete(@Valid @RequestBody Integer id) {
-		Time time = new Time();
-		time = null;
+*/	@RequestMapping(value = "/deleteJogo", method = RequestMethod.POST)
+	public ResponseEntity<Jogo> delete(@Valid @RequestBody Integer id) {
+		Jogo jogo = new Jogo();
+		jogo = null;
 		System.err.println("*** deleteUsuario: objDto." + "id=" + id);
 
 		try {
 			service.delete(id);
 		} catch (Exception e) {
 			System.err.println(e);
-			time = service.findId(id);
+			jogo = service.findId(id);
 		}
-		return ResponseEntity.ok().body(time);
+		return ResponseEntity.ok().body(jogo);
 	}
-	*/
+	
 }
