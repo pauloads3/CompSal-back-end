@@ -136,7 +136,7 @@ public class UsuarioService {
 			}else if (repoJogo.findByArbitroAuxiliar(id).size() > 0) {					
 				msg = "O usuário não pode ser excluído pois está cadastrado como Árbitro Auxiliar em um ou mais Jogos";
 				return msg;
-			}else if (repoJogo.findByAnotador(id) != null) {				
+			}else if (repoJogo.findByAnotador(id) != null) {	 			
 				msg = "O usuário não pode ser excluído pois está cadastrado como Anotador em um ou mais Jogos";
 				return msg;
 			}else {
