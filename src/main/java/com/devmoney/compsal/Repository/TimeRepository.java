@@ -5,7 +5,6 @@ import java.util.List;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 import com.devmoney.compsal.domain.Time;
-import com.devmoney.compsal.domain.UsuarioNew;
 
 public interface TimeRepository extends JpaRepository<Time, Integer> {
 

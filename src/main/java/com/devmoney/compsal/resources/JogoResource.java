@@ -17,49 +17,50 @@ import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 
-import com.devmoney.compsal.domain.Time;
-import com.devmoney.compsal.domain.UsuarioNew;
-import com.devmoney.compsal.dto.TimeDTO;
-import com.devmoney.compsal.dto.UsuarioDTO;
-import com.devmoney.compsal.services.TimeService;
+import com.devmoney.compsal.domain.Jogo;
+import com.devmoney.compsal.dto.JogoDTO;
+/*import com.devmoney.compsal.domain.Time;
+import com.devmoney.compsal.dto.TimeDTO;*/
+import com.devmoney.compsal.services.JogoService;
 
 @RestController
-@RequestMapping(value = "/times")
+@RequestMapping(value = "/jogos")
 @CrossOrigin(origins = "*")
-public class TimeResource {
+public class JogoResource {
 
 	@Autowired
-	private TimeService service;
+	private JogoService service;
 
 	@RequestMapping(value = "/{id}", method = RequestMethod.GET)
 	@CrossOrigin(origins = "*")
-	public ResponseEntity<Time> find(@PathVariable Integer id) {
-		Time time = service.findId(id);
-		return ResponseEntity.ok().body(time);
+	public ResponseEntity<Jogo> find(@PathVariable Integer id) {
+		Jogo jogo = service.findId(id);
+		return ResponseEntity.ok().body(jogo);
 	}
 
+	
 	@RequestMapping(method = RequestMethod.GET)
-	public ResponseEntity<List<TimeDTO>> findAll() {
-		List<Time> list = service.findAll();
-		List<TimeDTO> listDTO = list.stream().map(obj -> new TimeDTO(obj)).collect(Collectors.toList());
+	public ResponseEntity<List<JogoDTO>> findAll() {
+		List<Jogo> list = service.findAll();
+		List<JogoDTO> listDTO = list.stream().map(obj -> new JogoDTO(obj)).collect(Collectors.toList());
 		return ResponseEntity.ok().body(listDTO);
 	}
 
 	@RequestMapping(value = "/createTime", method = RequestMethod.POST)
 	@CrossOrigin(origins = "*")
-	public ResponseEntity<Time> insert(@RequestBody TimeDTO objDto) {
-		Time time = new Time();
-		time = service.fromDTO(objDto);
-		String msg = "";
-		msg = service.insertVerifica(time);
-		if (msg.equals("OK")) {
-			time = service.insert(time);
-		}
-		System.err.println(msg);
-		System.err.println("***/createTime" + time.getNome() + time.getGenero());
-		return ResponseEntity.ok().body(time);
+	public ResponseEntity<Jogo> insert(@RequestBody JogoDTO objDto) {
+		Jogo jogo = new Jogo();
+		jogo = service.fromDTO(objDto);
+		
+		//String msg = "";
+		//msg = service.insertVerifica(time);
+		//if (msg.equals("OK")) {
+		jogo = service.insert(jogo);
+		//}
+		//System.err.println(msg);		
+		return ResponseEntity.ok().body(jogo);
 	}
-
+/*
 	@RequestMapping(value = "/createTimeOk", method = RequestMethod.POST)
 	@CrossOrigin(origins = "*")
 	public ResponseEntity<String> insertOK(@RequestBody TimeDTO objDto) {
@@ -107,4 +108,5 @@ public class TimeResource {
 		}
 		return ResponseEntity.ok().body(time);
 	}
+	*/
 }
