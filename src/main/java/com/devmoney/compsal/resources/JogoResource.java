@@ -38,7 +38,6 @@ public class JogoResource {
 		return ResponseEntity.ok().body(jogo);
 	}
 
-	
 	@RequestMapping(method = RequestMethod.GET)
 	public ResponseEntity<List<JogoDTO>> findAll() {
 		List<Jogo> list = service.findAll();
@@ -51,27 +50,16 @@ public class JogoResource {
 	public ResponseEntity<Jogo> insert(@RequestBody JogoDTO objDto) {
 		Jogo jogo = new Jogo();
 		jogo = service.fromDTO(objDto);
-		
-		//String msg = "";
-		//msg = service.insertVerifica(time);
-		//if (msg.equals("OK")) {
+
+		// String msg = "";
+		// msg = service.insertVerifica(time);
+		// if (msg.equals("OK")) {
 		jogo = service.insert(jogo);
-		//}
-		//System.err.println(msg);		
+		// }
+		// System.err.println(msg);
 		return ResponseEntity.ok().body(jogo);
 	}
-/*
-	@RequestMapping(value = "/createTimeOk", method = RequestMethod.POST)
-	@CrossOrigin(origins = "*")
-	public ResponseEntity<String> insertOK(@RequestBody TimeDTO objDto) {
-		Time time = new Time();
-		time = service.fromDTO(objDto);
-		String msg = "";
-		msg = service.insertVerifica(time);
-		System.err.println(msg);
-		return ResponseEntity.ok().body(msg);
-	}
-*/
+
 	@RequestMapping(value = "/updateJogo", method = RequestMethod.POST)
 	public ResponseEntity<Jogo> update(@Valid @RequestBody Jogo objDto) {
 		service.update(objDto);
@@ -82,17 +70,8 @@ public class JogoResource {
 		return ResponseEntity.ok().body(objDto);
 
 	}
-/*
-	@RequestMapping(value = "/updateTimeOk", method = RequestMethod.POST)
-	@CrossOrigin(origins = "*")
-	public ResponseEntity<String> updateOK(@RequestBody Time objDto) {
-		String msg = "";
-		msg = service.updateVerifica(objDto).toString();
-		System.err.println(msg);
-		return ResponseEntity.ok().body(msg);
-	}
 
-*/	@RequestMapping(value = "/deleteJogo", method = RequestMethod.POST)
+	@RequestMapping(value = "/deleteJogo", method = RequestMethod.POST)
 	public ResponseEntity<Jogo> delete(@Valid @RequestBody Integer id) {
 		Jogo jogo = new Jogo();
 		jogo = null;
@@ -106,5 +85,5 @@ public class JogoResource {
 		}
 		return ResponseEntity.ok().body(jogo);
 	}
-	
+
 }

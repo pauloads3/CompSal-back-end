@@ -30,6 +30,7 @@ import com.devmoney.compsal.domain.Tecnico;
 import com.devmoney.compsal.domain.UsuarioNew;
 import com.devmoney.compsal.domain.enums.FuncaoArbitro;
 import com.devmoney.compsal.domain.enums.PerfilUsuario;
+import com.devmoney.compsal.services.TimeService;
 
 @SpringBootApplication
 public class CompsalBackendApplication implements CommandLineRunner {
@@ -52,6 +53,8 @@ public class CompsalBackendApplication implements CommandLineRunner {
 	private GestorRepository gestorRepo;
 	@Autowired
 	private UsuarioRepository usuRepo;
+	@Autowired
+	private TimeService timeservice;
 
 	public static void main(String[] args) {
 		SpringApplication.run(CompsalBackendApplication.class, args);
@@ -61,91 +64,119 @@ public class CompsalBackendApplication implements CommandLineRunner {
 	public void run(String... args) throws Exception {
 
 		// popula();
+		
 
 	}
 
 	@SuppressWarnings("unused")
 	private void popula() throws Exception {
 		
-		UsuarioNew usu = new UsuarioNew(null, "Aarão Alenmar", " 077.698.587-56","Aarão", "M", "01/03/1986",
+		UsuarioNew usu = new UsuarioNew(null, "Aarão Alenmar", "077.698.587-56","Aarão", "M", "01/03/1986",
 				"(81) 9 9651-4215", "contato@contato.com", "Rua vinte e um", "321", "55.675-757", "Ibura", "Reife", "PE");
 		usuRepo.save(usu);
-		UsuarioNew usu2 = new UsuarioNew(null, "Abel Monteze", " 077.677.587-56","Abel", "M", "01/03/1986",
+		UsuarioNew usu2 = new UsuarioNew(null, "Abel Monteze", "077.677.254-56","Abel", "M", "01/03/1986",
 				"(81) 9 9651-4215", "contato@contato.com", "Rua vinte e um", "321", "55.675-757", "Ibura", "Reife", "PE");
 		usuRepo.save(usu2);
-		usu2 = new UsuarioNew(null, "Abner Romar", " 077.677.587-56","Abner", "M", "01/03/1986",
+		usu2 = new UsuarioNew(null, "Abner Romar", "123.677.587-56","Abner", "M", "01/03/1986",
 				"(81) 9 9651-4215", "contato@contato.com", "Rua vinte e um", "321", "55.675-757", "Ibura", "Reife", "PE");
 		usuRepo.save(usu2);
-		usu2 = new UsuarioNew(null, "Abelardo Queiroz", " 077.677.587-56","Abelardo", "M", "01/03/1986",
+		usu2 = new UsuarioNew(null, "Abelardo Queiroz", "077.456.587-56","Abelardo", "M", "01/03/1986",
 				"(81) 9 9651-4215", "contato@contato.com", "Rua vinte e um", "321", "55.675-757", "Ibura", "Reife", "PE");
 		usuRepo.save(usu2);
-		usu2 = new UsuarioNew(null, "Adamastor Paiva", " 077.677.587-56","Adamastor", "M", "01/03/1986",
+		usu2 = new UsuarioNew(null, "Adamastor Paiva", "123.677.789-56","Adamastor", "M", "01/03/1986",
 				"(81) 9 9651-4215", "contato@contato.com", "Rua vinte e um", "321", "55.675-757", "Ibura", "Reife", "PE");
 		usuRepo.save(usu2);
-		usu2 = new UsuarioNew(null, "Adelindo Augusto", " 077.677.587-56","Adelindo", "M", "01/03/1986",
+		usu2 = new UsuarioNew(null, "Adelindo Augusto", "077.012.587-56","Adelindo", "M", "01/03/1986",
 				"(81) 9 9651-4215", "contato@contato.com", "Rua vinte e um", "321", "55.675-757", "Ibura", "Reife", "PE");
 		usuRepo.save(usu2);
-		usu2 = new UsuarioNew(null, "Belarmino Villa Verde", " 077.677.587-56","Belarmino", "M", "01/03/1986",
+		usu2 = new UsuarioNew(null, "Belarmino Villa Verde", "067.677.587-56","Belarmino", "M", "01/03/1986",
 				"(81) 9 9651-4215", "contato@contato.com", "Rua vinte e um", "321", "55.675-757", "Ibura", "Reife", "PE");
 		usuRepo.save(usu2);
-		usu2 = new UsuarioNew(null, "Bento Camargo", " 077.677.587-56","Bento", "M", "01/03/1986",
+		usu2 = new UsuarioNew(null, "Bento Camargo", "064.677.587-56","Bento", "M", "01/03/1986",
 				"(81) 9 9651-4215", "contato@contato.com", "Rua vinte e um", "321", "55.675-757", "Ibura", "Reife", "PE");
 		usuRepo.save(usu2);
-		usu2 = new UsuarioNew(null, "Beto Souto", " 077.677.587-56","Beto", "M", "01/03/1986",
+		usu2 = new UsuarioNew(null, "Beto Souto", "077.848.587-56","Beto", "M", "01/03/1986",
 				"(81) 9 9651-4215", "contato@contato.com", "Rua vinte e um", "321", "55.675-757", "Ibura", "Reife", "PE");
 		usuRepo.save(usu2);
-		usu2 = new UsuarioNew(null, "Bruno Pinheiro", " 077.677.587-56","Bruno", "M", "01/03/1986",
+		usu2 = new UsuarioNew(null, "Bruno Pinheiro", "077.677.654-56","Bruno", "M", "01/03/1986",
 				"(81) 9 9651-4215", "contato@contato.com", "Rua vinte e um", "321", "55.675-757", "Ibura", "Reife", "PE");
 		usuRepo.save(usu2);
-		usu2 = new UsuarioNew(null, "Carlo Santos", " 077.677.587-56","Carlo", "M", "01/03/1986",
+		usu2 = new UsuarioNew(null, "Carlo Santos", "321.677.258-56","Carlo", "M", "01/03/1986",
 				"(81) 9 9651-4215", "contato@contato.com", "Rua vinte e um", "321", "55.675-757", "Ibura", "Reife", "PE");
 		usuRepo.save(usu2);
-		usu2 = new UsuarioNew(null, "Caetano Alves", " 077.677.587-56","Caetano", "M", "01/03/1986",
+		usu2 = new UsuarioNew(null, "Caetano Alves", "741.677.658-50","Caetano", "M", "01/03/1986",
 				"(81) 9 9651-4215", "contato@contato.com", "Rua vinte e um", "321", "55.675-757", "Ibura", "Reife", "PE");
 		usuRepo.save(usu2);
-		usu2 = new UsuarioNew(null, "Caio Almeida", " 077.677.587-56","Caio", "M", "01/03/1986",
+		usu2 = new UsuarioNew(null, "Caio Almeida", "098.677.254-56","Caio", "M", "01/03/1986",
 				"(81) 9 9651-4215", "contato@contato.com", "Rua vinte e um", "321", "55.675-757", "Ibura", "Reife", "PE");
 		usuRepo.save(usu2);
-		usu2 = new UsuarioNew(null, "Celso Peixoto", " 077.677.587-56","Celso", "M", "01/03/1986",
+		usu2 = new UsuarioNew(null, "Celso Peixoto", "999.677.587-25","Celso", "M", "01/03/1986",
 				"(81) 9 9651-4215", "contato@contato.com", "Rua vinte e um", "321", "55.675-757", "Ibura", "Reife", "PE");
 		usuRepo.save(usu2);
-		usu2 = new UsuarioNew(null, "Claudemiro Torres", " 077.677.587-56","Claudemiro", "M", "01/03/1986",
+		usu2 = new UsuarioNew(null, "Claudemiro Torres", "077.677.587-10","Claudemiro", "M", "01/03/1986",
 				"(81) 9 9651-4215", "contato@contato.com", "Rua vinte e um", "321", "55.675-757", "Ibura", "Reife", "PE");
 		usuRepo.save(usu2);
-		usu2 = new UsuarioNew(null, "Clóvis Vieira", " 077.677.587-56","Clóvis", "M", "01/03/1986",
+		usu2 = new UsuarioNew(null, "Clóvis Vieira", "077.600.587-06","Clóvis", "M", "01/03/1986",
 				"(81) 9 9651-4215", "contato@contato.com", "Rua vinte e um", "321", "55.675-757", "Ibura", "Reife", "PE");
 		usuRepo.save(usu2);		
-		usu2 = new UsuarioNew(null, "Cosme Castelli", " 077.677.587-56","Cosme", "M", "01/03/1986",
+		usu2 = new UsuarioNew(null, "Cosme Castelli", "002.677.587-99","Cosme", "M", "01/03/1986",
 				"(81) 9 9651-4215", "contato@contato.com", "Rua vinte e um", "321", "55.675-757", "Ibura", "Reife", "PE");
 		usuRepo.save(usu2);
-		usu2 = new UsuarioNew(null, "Davi Haddad", " 077.677.587-56","Davi", "M", "01/03/1986",
+		usu2 = new UsuarioNew(null, "Davi Haddad", "077.687.587-56","Davi", "M", "01/03/1986",
 				"(81) 9 9651-4215", "contato@contato.com", "Rua vinte e um", "321", "55.675-757", "Ibura", "Reife", "PE");
 		usuRepo.save(usu2);
-		usu2 = new UsuarioNew(null, "Décio Rangel", " 077.677.587-56","Décio", "M", "01/03/1986",
+		usu2 = new UsuarioNew(null, "Décio Rangel", "874.677.587-32","Décio", "M", "01/03/1986",
 				"(81) 9 9651-4215", "contato@contato.com", "Rua vinte e um", "321", "55.675-757", "Ibura", "Reife", "PE");
 		usuRepo.save(usu2);
-		usu2 = new UsuarioNew(null, "Delmar Filho", " 077.677.587-56","Delmar", "M", "01/03/1986",
+		usu2 = new UsuarioNew(null, "Delmar Filho", "895.677.587-37","Delmar", "M", "01/03/1986",
 				"(81) 9 9651-4215", "contato@contato.com", "Rua vinte e um", "321", "55.675-757", "Ibura", "Reife", "PE");
 		usuRepo.save(usu2);
-		usu2 = new UsuarioNew(null, "Daniel Mattos", " 077.677.587-56","Daniel", "M", "01/03/1986",
+		usu2 = new UsuarioNew(null, "Daniel Mattos", "784.677.587-38","Daniel", "M", "01/03/1986",
 				"(81) 9 9651-4215", "contato@contato.com", "Rua vinte e um", "321", "55.675-757", "Ibura", "Reife", "PE");
 		usuRepo.save(usu2);
-		usu2 = new UsuarioNew(null, "Denis Almeida", " 077.677.587-56","Denis", "M", "01/03/1986",
+		usu2 = new UsuarioNew(null, "Denis Almeida", "348.000.587-22","Denis", "M", "01/03/1986",
 				"(81) 9 9651-4215", "contato@contato.com", "Rua vinte e um", "321", "55.675-757", "Ibura", "Reife", "PE");
 		usuRepo.save(usu2);
-		usu2 = new UsuarioNew(null, "Diego Lembo", " 077.677.587-56","Diego", "M", "01/03/1986",
+		usu2 = new UsuarioNew(null, "Diego Lembo", "111.666.587-94","Diego", "M", "01/03/1986",
 				"(81) 9 9651-4215", "contato@contato.com", "Rua vinte e um", "321", "55.675-757", "Ibura", "Reife", "PE");
 		usuRepo.save(usu2);
-		usu2 = new UsuarioNew(null, "Durval Jambo", " 077.677.587-56","Durval", "M", "01/03/1986",
+		usu2 = new UsuarioNew(null, "Durval Jambo", "222.677.000-62","Durval", "M", "01/03/1986",
 				"(81) 9 9651-4215", "contato@contato.com", "Rua vinte e um", "321", "55.675-757", "Ibura", "Reife", "PE");
 		usuRepo.save(usu2);
-		usu2 = new UsuarioNew(null, "Eduardo Albuquerque", " 077.677.587-56","Eduardo", "M", "01/03/1986",
+		usu2 = new UsuarioNew(null, "Eduardo Albuquerque", "245.677.587-71","Eduardo", "M", "01/03/1986",
 				"(81) 9 9651-4215", "contato@contato.com", "Rua vinte e um", "321", "55.675-757", "Ibura", "Reife", "PE");
 		usuRepo.save(usu2);
-		usu2 = new UsuarioNew(null, "Emanuel Setta", " 077.677.587-56","Emanuel", "M", "01/03/1986",
+		usu2 = new UsuarioNew(null, "Emanuel Setta", "077.358.587-56","Emanuel", "M", "01/03/1986",
 				"(81) 9 9651-4215", "contato@contato.com", "Rua vinte e um", "321", "55.675-757", "Ibura", "Reife", "PE");
 		usuRepo.save(usu2);
-		usu2 = new UsuarioNew(null, "Enrique Rossano", " 077.677.587-56","Enrique", "M", "01/03/1986",
+		usu2 = new UsuarioNew(null, "Enrique Rossano", "077.677.024-55","Enrique", "M", "01/03/1986",
+				"(81) 9 9651-4215", "contato@contato.com", "Rua vinte e um", "321", "55.675-757", "Ibura", "Reife", "PE");
+		usuRepo.save(usu2);		
+		usu2 = new UsuarioNew(null, "Erasmo Mendes", "035.677.024-25","Erasmo", "M", "01/03/1986",
+				"(81) 9 9651-4215", "contato@contato.com", "Rua vinte e um", "321", "55.675-757", "Ibura", "Reife", "PE");
+		usuRepo.save(usu2);
+		usu2 = new UsuarioNew(null, "Evandro Antunes", "077.854.024-00","Evandro", "M", "01/03/1986",
+				"(81) 9 9651-4215", "contato@contato.com", "Rua vinte e um", "321", "55.675-757", "Ibura", "Reife", "PE");
+		usuRepo.save(usu2);
+		usu2 = new UsuarioNew(null, "Faustino Mello", "017.6258.024-95","Faustino", "M", "01/03/1986",
+				"(81) 9 9651-4215", "contato@contato.com", "Rua vinte e um", "321", "55.675-757", "Ibura", "Reife", "PE");
+		usuRepo.save(usu2);
+		usu2 = new UsuarioNew(null, "Fred Valadão", "055.677.024-77","Fred", "M", "01/03/1986",
+				"(81) 9 9651-4215", "contato@contato.com", "Rua vinte e um", "321", "55.675-757", "Ibura", "Reife", "PE");
+		usuRepo.save(usu2);
+		usu2 = new UsuarioNew(null, "Gabriel Fontes", "027.677.027-55","Gabriel", "M", "01/03/1986",
+				"(81) 9 9651-4215", "contato@contato.com", "Rua vinte e um", "321", "55.675-757", "Ibura", "Reife", "PE");
+		usuRepo.save(usu2);
+		usu2 = new UsuarioNew(null, "Georgino Piva", "077.354.984-36","Georgino", "M", "01/03/1986",
+				"(81) 9 9651-4215", "contato@contato.com", "Rua vinte e um", "321", "55.675-757", "Ibura", "Reife", "PE");
+		usuRepo.save(usu2);
+		usu2 = new UsuarioNew(null, "Gustavo Abreu", "865.677.985-55","Gustavo", "M", "01/03/1986",
+				"(81) 9 9651-4215", "contato@contato.com", "Rua vinte e um", "321", "55.675-757", "Ibura", "Reife", "PE");
+		usuRepo.save(usu2);
+		usu2 = new UsuarioNew(null, "Herculano Barros", "741.677.354-27","Herculano", "M", "01/03/1986",
+				"(81) 9 9651-4215", "contato@contato.com", "Rua vinte e um", "321", "55.675-757", "Ibura", "Reife", "PE");
+		usuRepo.save(usu2);
+		usu2 = new UsuarioNew(null, "Hugo Carvalho", "214.677.632-74","Hugo", "M", "01/03/1986",
 				"(81) 9 9651-4215", "contato@contato.com", "Rua vinte e um", "321", "55.675-757", "Ibura", "Reife", "PE");
 		usuRepo.save(usu2);
 		

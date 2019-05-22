@@ -108,17 +108,23 @@ public class TimeResource {
 	}
 
 	@RequestMapping(value = "/deleteTime", method = RequestMethod.POST)
-	public ResponseEntity<Time> delete(@Valid @RequestBody Integer id) {
-		Time time = new Time();
-		time = null;
+	public ResponseEntity<String> delete(@Valid @RequestBody Integer id) {
 		System.err.println("*** deleteUsuario: objDto." + "id=" + id);
-
+		
+		String msg = "";
 		try {
-			service.delete(id);
+			 msg =service.deleteVerifica(id);
+			System.err.println(msg);
+			
+			service.deleteVerifica(id);
+			
+			if (msg.equals("OK")) {
+				service.delete(id);
+			}
+			
 		} catch (Exception e) {
-			System.err.println(e);
-			time = service.findId(id);
-		}
-		return ResponseEntity.ok().body(time);
-	}
+			System.err.println("Erro " + e);
+		}		
+		return ResponseEntity.ok().body(msg);
+	}		
 }

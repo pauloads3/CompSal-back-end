@@ -7,8 +7,10 @@ import java.util.Optional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.devmoney.compsal.Repository.JogoRepository;
 import com.devmoney.compsal.Repository.TimeRepository;
 import com.devmoney.compsal.Repository.UsuarioRepository;
+import com.devmoney.compsal.domain.Jogo;
 import com.devmoney.compsal.domain.Time;
 import com.devmoney.compsal.domain.UsuarioNew;
 import com.devmoney.compsal.dto.TimeDTO;
@@ -20,6 +22,8 @@ public class TimeService {
 	private TimeRepository repo;
 	@Autowired
 	private UsuarioService UsuService;
+	@Autowired
+	private JogoRepository repoJogo;
 
 	public Time findId(Integer id) {
 		Optional<Time> obj = repo.findById(id);
@@ -28,6 +32,34 @@ public class TimeService {
 
 	public List<Time> findAll() {
 		return repo.findAll();
+	}
+
+	public List<Integer> findAllNotJogadores() {
+		List<Time> times ;
+		times = repo.findAll();
+		ArrayList<Integer> pessoas = new ArrayList<Integer>();
+		ArrayList<Integer> usuarios = new ArrayList<Integer>();		
+		for (int i = 0; i < times.size(); i++) {
+			pessoas.add(times.get(i).getGoleiro());
+			pessoas.add(times.get(i).getFixo());
+			pessoas.add(times.get(i).getAlaDireita());
+			pessoas.add(times.get(i).getAlaEsquerda());
+			pessoas.add(times.get(i).getPivo());
+			pessoas.add(times.get(i).getTreinador());
+			pessoas.add(times.get(i).getMassagista());
+			pessoas.add(times.get(i).getJogadorReserva1());
+			pessoas.add(times.get(i).getJogadorReserva2());
+			pessoas.add(times.get(i).getJogadorReserva3());
+			pessoas.add(times.get(i).getJogadorReserva4());
+			pessoas.add(times.get(i).getJogadorReserva5());			
+		}			
+		
+		for (int i = 0; i < pessoas.size(); i++) {			
+			if (pessoas.get(i) != null) {
+				usuarios.add(pessoas.get(i));				
+			}
+		}		
+		return usuarios;
 	}
 
 	public List<Time> findByGeneroM() {
@@ -39,6 +71,11 @@ public class TimeService {
 
 		return repo.findByGenero("F");
 	}
+	/*
+	 * public List<Time> findByGoleiroOrFixoOrAlaDireitaNotNull() {
+	 * 
+	 * return repo.findAllByFixoIsNull(); }
+	 */
 
 	public Time findByNomeAndGenero(String nome, String genero) {
 
@@ -407,6 +444,30 @@ public class TimeService {
 			}
 		}
 		return msg;
+	}
+
+	public String deleteVerifica(Integer id) {
+
+		Time time = findId(id);
+		System.err.println(time.getNome());
+
+		String msg = "";
+		try {
+			if (repoJogo.findByTimeA(time.getNome()).size() > 0) {
+				System.err.println(time.getNome());
+				msg = "O Time não pode ser excluído pois está cadastrado em um ou mais Jogos";
+				return msg;
+			} else if (repoJogo.findByTimeB(time.getNome()).size() > 0) {
+				System.err.println(time.getNome());
+				msg = "O Time não pode ser excluído pois está cadastrado em um ou mais Jogos";
+				return msg;
+			} else {
+				return "OK";
+			}
+
+		} catch (Exception e) {
+			return "Erro: " + e.getMessage();
+		}
 	}
 
 	public void updateTime(Time newObj, Time obj) {

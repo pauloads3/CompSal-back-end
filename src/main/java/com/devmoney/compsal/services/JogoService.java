@@ -30,7 +30,7 @@ public class JogoService {
 
 		return repo.findByArbitroPrincipal(id);
 	}
-	
+		
 	public List<Jogo> findByArbitroAuxiliar(Integer id) {
 
 		return repo.findByArbitroAuxiliar(id);
@@ -40,6 +40,15 @@ public class JogoService {
 		return repo.findByAnotador(id);
 	}
 	
+	public List<Jogo> findByTimeA(String time) {
+
+		return repo.findByTimeA(time);
+	}
+	
+	public List<Jogo> findByTimeB(String time) {
+
+		return repo.findByTimeB(time);
+	}
 	
 	public Jogo insert(Jogo obj) {
 		obj.setId(null);

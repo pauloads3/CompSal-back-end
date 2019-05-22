@@ -45,14 +45,14 @@ public class UsuarioResource {
 */
 	@RequestMapping(method=RequestMethod.GET)
 	public ResponseEntity<List<UsuarioDTO>> findAll() {	
-		List<UsuarioNew> list = service.findAll();
+		List<UsuarioNew> list = service.findAllByOrderByNomeAsc();
 		List<UsuarioDTO> listDTO = list.stream().map(obj -> new UsuarioDTO(obj)).collect(Collectors.toList());
 		return ResponseEntity.ok().body(listDTO);
 	}
 	
 	@RequestMapping(value="/findAllM", method=RequestMethod.GET)
 	public ResponseEntity<List<UsuarioDTO>> findAllM() {	
-		List<UsuarioNew> list = service.findBySexoM();
+		List<UsuarioNew> list = service.findBySexoM2();
 		List<UsuarioDTO> listDTO = list.stream().map(obj -> new UsuarioDTO(obj)).collect(Collectors.toList());
 		return ResponseEntity.ok().body(listDTO);
 	}

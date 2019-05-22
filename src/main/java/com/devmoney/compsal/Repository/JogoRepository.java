@@ -16,5 +16,7 @@ public interface JogoRepository extends JpaRepository<Jogo, Integer> {
 
 	List<Jogo> findByArbitroAuxiliar(Integer id);
 
-	 		
+	List<Jogo> findByTimeA(String time);
+
+	List<Jogo> findByTimeB(String time); 	 
 }
