@@ -34,12 +34,14 @@ public class TimeService {
 		return repo.findAll();
 	}
 
-	public List<Integer> findAllNotJogadores() {
+	public List<Integer> findAllNotJogadores(Integer id) {
 		List<Time> times ;
 		times = repo.findAll();
 		ArrayList<Integer> pessoas = new ArrayList<Integer>();
 		ArrayList<Integer> usuarios = new ArrayList<Integer>();		
-		for (int i = 0; i < times.size(); i++) {
+		for (int i = 0; i < times.size(); i++) {			
+			if (times.get(i).getId() != id ) {
+				System.err.println(times.get(i).getId());
 			pessoas.add(times.get(i).getGoleiro());
 			pessoas.add(times.get(i).getFixo());
 			pessoas.add(times.get(i).getAlaDireita());
@@ -52,7 +54,8 @@ public class TimeService {
 			pessoas.add(times.get(i).getJogadorReserva3());
 			pessoas.add(times.get(i).getJogadorReserva4());
 			pessoas.add(times.get(i).getJogadorReserva5());			
-		}			
+		}		
+		}
 		
 		for (int i = 0; i < pessoas.size(); i++) {			
 			if (pessoas.get(i) != null) {
@@ -82,6 +85,7 @@ public class TimeService {
 		return repo.findByNomeAndGenero(nome, genero);
 	}
 
+	
 	public Time findByGoleiro(Integer id) {
 
 		return repo.findByGoleiro(id);

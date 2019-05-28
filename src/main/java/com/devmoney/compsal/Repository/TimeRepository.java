@@ -42,5 +42,7 @@ public interface TimeRepository extends JpaRepository<Time, Integer> {
 	
 	List<Time> findByGoleiroOrFixoOrAlaDireitaOrAlaEsquerdaOrPivo(Integer id, Integer id2 , Integer id3, Integer id4, Integer id5); 
 	
-	List<Time> findAllByGoleiroOrFixoOrAlaDireitaOrAlaEsquerdaIsNullOrPivoIsNull(Integer id, Integer id2 , Integer id3); 
+	List<Time> findAllByGoleiroOrFixoOrAlaDireitaOrAlaEsquerdaIsNullOrPivoIsNull(Integer id, Integer id2 , Integer id3);
+
+	
 }

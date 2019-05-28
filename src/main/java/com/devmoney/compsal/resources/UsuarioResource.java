@@ -50,9 +50,23 @@ public class UsuarioResource {
 		return ResponseEntity.ok().body(listDTO);
 	}
 	
+	@RequestMapping(value="/findAllM/{id}", method=RequestMethod.GET)
+	public ResponseEntity<List<UsuarioDTO>> findAllM(@PathVariable Integer id) {	
+		List<UsuarioNew> list = service.findBySexoM2(id);
+		List<UsuarioDTO> listDTO = list.stream().map(obj -> new UsuarioDTO(obj)).collect(Collectors.toList());
+		return ResponseEntity.ok().body(listDTO);
+	}
+		
+	@RequestMapping(value="/findAllF/{id}", method=RequestMethod.GET)
+	public ResponseEntity<List<UsuarioDTO>> findAllF(@PathVariable Integer id) {	
+		List<UsuarioNew> list = service.findBySexoF();
+		List<UsuarioDTO> listDTO = list.stream().map(obj -> new UsuarioDTO(obj)).collect(Collectors.toList());
+		return ResponseEntity.ok().body(listDTO);
+	}
+	
 	@RequestMapping(value="/findAllM", method=RequestMethod.GET)
 	public ResponseEntity<List<UsuarioDTO>> findAllM() {	
-		List<UsuarioNew> list = service.findBySexoM2();
+		List<UsuarioNew> list = service.findBySexoM2(null);
 		List<UsuarioDTO> listDTO = list.stream().map(obj -> new UsuarioDTO(obj)).collect(Collectors.toList());
 		return ResponseEntity.ok().body(listDTO);
 	}

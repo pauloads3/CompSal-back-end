@@ -57,9 +57,9 @@ public class UsuarioService {
 		return repo.findBySexo("M");
 	}
 
-	public List<UsuarioNew> findBySexoM2() {
+	public List<UsuarioNew> findBySexoM2(Integer id) {
 
-		return repo.findBySexoAndIdNotIn("M", timeservice.findAllNotJogadores() );
+		return repo.findBySexoAndIdNotIn("M", timeservice.findAllNotJogadores(id) );
 	}
 
 	public List<UsuarioNew> findBySexoF() {

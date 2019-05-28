@@ -38,6 +38,19 @@ public class TimeResource {
 		return ResponseEntity.ok().body(time);
 	}
 
+	@RequestMapping(value = "/nomeM/{nome}", method = RequestMethod.GET)
+	@CrossOrigin(origins = "*")
+	public ResponseEntity<Time> findM(@PathVariable String nome) {
+		Time time = service.findByNomeAndGenero(nome,"M");
+		return ResponseEntity.ok().body(time);
+	}
+	@RequestMapping(value = "/nomeF/{nome}", method = RequestMethod.GET)
+	@CrossOrigin(origins = "*")
+	public ResponseEntity<Time> findF(@PathVariable String nome) {
+		Time time = service.findByNomeAndGenero(nome,"F");
+		return ResponseEntity.ok().body(time);
+	}
+	
 	@RequestMapping(method = RequestMethod.GET)
 	public ResponseEntity<List<TimeDTO>> findAll() {
 		List<Time> list = service.findAll();
